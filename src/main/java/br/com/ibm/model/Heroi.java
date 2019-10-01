@@ -17,18 +17,18 @@ public class Heroi {
 	//@OneToMany
 	//private Heroi parceiro;
 
-	//@OneToMany(mappedBy = "heroi")
-	//private List<Poderes> poder;
+	@OneToMany
+	private List<Poderes> poder;
 	
 	
 	public Heroi() {}
 	
-	public Heroi(int id, String nome, String universo) {
+	public Heroi(int id, String nome, String universo, List<Poderes> poder) {
 		this.id = id;
 		this.nome = nome;
 		this.universo = universo;
 		//this.parceiro = parceiro;
-		//this.poder = poder;
+		this.poder = poder;
 		
 	}
 	
@@ -62,7 +62,7 @@ public class Heroi {
 
 	public void setParceiro(Heroi parceiro) {
 		this.parceiro = parceiro;
-	}
+	}*/
 
 	public List<Poderes> getPoder() {
 		return poder;
@@ -70,7 +70,7 @@ public class Heroi {
 
 	public void setPoder(List<Poderes> poder) {
 		this.poder = poder;
-	}*/
+	}
 	
 	
 	

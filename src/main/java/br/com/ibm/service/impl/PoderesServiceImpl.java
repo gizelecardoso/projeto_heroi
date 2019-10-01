@@ -3,11 +3,13 @@ package br.com.ibm.service.impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.ibm.model.Poderes;
 import br.com.ibm.repository.PoderesRepository;
 import br.com.ibm.service.PoderesService;
 
+@Service
 public class PoderesServiceImpl implements PoderesService {
 
 	@Autowired

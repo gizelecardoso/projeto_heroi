@@ -2,6 +2,8 @@ package br.com.ibm.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Poderes {
@@ -11,6 +13,9 @@ public class Poderes {
 	private String poder;
 	private Integer forca;
 	
+	@ManyToOne
+	@JoinColumn(name = "heroi_id") 
+	private Heroi heroi;
 	
 	public int getId() {
 		return id;
@@ -29,6 +34,14 @@ public class Poderes {
 	}
 	public void setForca(Integer forca) {
 		this.forca = forca;
+	}
+	
+	public Heroi getHeroi() {
+		return heroi;
+	}
+	
+	public void setHeroi(Heroi heroi) {
+		this.heroi = heroi;
 	}
 	
 	

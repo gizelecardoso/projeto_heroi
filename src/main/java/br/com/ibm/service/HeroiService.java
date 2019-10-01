@@ -15,7 +15,7 @@ public interface HeroiService {
 	
 	public Iterable<Heroi> consultaTodosHerois(Heroi heroi);
 
-	public void atualizarHeroi(Integer id, Heroi heroi);
+	public Heroi atualizarHeroi(Integer id, Heroi heroi);
 
 	
 }

@@ -39,20 +39,15 @@ public class HeroiServiceImpl implements HeroiService {
 		return repository.findById(id);
 	}
 
+	
 	@Override
-	public void atualizarHeroi(Integer id, Heroi heroi) {
-		
-		//Optional<Heroi> opt = Optional.ofNullable(heroi);
-		//assertFalse(opt.isPresent());
-		
-		
-		if(consultaHeroi(id) == null) {
-			
-			//throw new NullPointerException("Heroi não cadastrado");
+	public Heroi atualizarHeroi(Integer id, Heroi heroi) {
+	
+		if(id == null) {
+			throw new NullPointerException("Heroi não encontrado");
 		}else {
-			repository.save(heroi);
+			return repository.save(heroi);
 		}
-		
 	}
 
 }
