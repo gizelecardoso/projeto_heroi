@@ -1,11 +1,17 @@
 package br.com.ibm.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "poderes")
 public class Poderes {
 
 	@Id
@@ -13,9 +19,9 @@ public class Poderes {
 	private String poder;
 	private Integer forca;
 	
-	@ManyToOne
-	@JoinColumn(name = "heroi_id") 
-	private Heroi heroi;
+	@ManyToMany (fetch = FetchType.LAZY)
+	@JoinTable(name = "heroi_poderes", joinColumns = @JoinColumn(name = "poderes_id"), inverseJoinColumns = @JoinColumn(name = "heroi_id"))
+	private List<Heroi> heroi;
 	
 	public int getId() {
 		return id;
@@ -36,11 +42,11 @@ public class Poderes {
 		this.forca = forca;
 	}
 	
-	public Heroi getHeroi() {
+	public List<Heroi> getHeroi() {
 		return heroi;
 	}
 	
-	public void setHeroi(Heroi heroi) {
+	public void setHeroi(List<Heroi> heroi) {
 		this.heroi = heroi;
 	}
 	
