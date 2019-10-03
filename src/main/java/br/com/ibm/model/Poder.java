@@ -3,24 +3,22 @@ package br.com.ibm.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "poderes")
-public class Poderes {
+@Table(name = "poder")
+//@SequenceGenerator(initialValue = 1, name = "poder_sequence")
+public class Poder {
 
 	@Id
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "poder_sequence")
 	private int id;
 	private String poder;
 	private Integer forca;
 	
-	@ManyToMany (fetch = FetchType.LAZY)
-	@JoinTable(name = "heroi_poderes", joinColumns = @JoinColumn(name = "poderes_id"), inverseJoinColumns = @JoinColumn(name = "heroi_id"))
+	@ManyToMany(mappedBy = "poder")
 	private List<Heroi> heroi;
 	
 	public int getId() {

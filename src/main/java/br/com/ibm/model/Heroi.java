@@ -7,25 +7,28 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "heroi")
+//@SequenceGenerator(initialValue = 1, name = "heroi_sequence")
 public class Heroi {
 	
 	@Id
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "heroi_sequence")
 	private int id;
 	private String nome;
 	private String universo;
 	
 	@OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-	@JoinColumn(name = "parceiro_id", referencedColumnName = "id")
 	private Heroi parceiro;
 
-	@ManyToMany(mappedBy = "heroi", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-	private List<Poderes> poder;
+	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@JoinTable(name = "heroi_poder", joinColumns = @JoinColumn(name = "heroi_id"), inverseJoinColumns = @JoinColumn(name = "poder_id"))
+	private List<Poder> poder;
 	
 	
 	public int getId() {
@@ -60,11 +63,11 @@ public class Heroi {
 		this.parceiro = parceiro;
 	}
 
-	public List<Poderes> getPoder() {
+	public List<Poder> getPoder() {
 		return poder;
 	}
 
-	public void setPoder(List<Poderes> poder) {
+	public void setPoder(List<Poder> poder) {
 		this.poder = poder;
 	}
 	

@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.ibm.model.Poderes;
+import br.com.ibm.model.Poder;
 import br.com.ibm.repository.PoderesRepository;
 import br.com.ibm.service.PoderesService;
 
@@ -16,7 +16,7 @@ public class PoderesServiceImpl implements PoderesService {
 	PoderesRepository repository;
 	
 	@Override
-	public void salvePoderes(Poderes poder) {
+	public void salvePoderes(Poder poder) {
 		repository.save(poder);
 		
 	}
@@ -27,19 +27,19 @@ public class PoderesServiceImpl implements PoderesService {
 	}
 
 	@Override
-	public Optional<Poderes> consultaPoderes(Integer id) {
+	public Optional<Poder> consultaPoderes(Integer id) {
 		
 		return repository.findById(id);
 	}
 
 	@Override
-	public Iterable<Poderes> consultaTodosPoderes(Poderes poder) {
+	public Iterable<Poder> consultaTodosPoderes(Poder poder) {
 		
 		return repository.findAll();
 	}
 
 	@Override
-	public void atualizarPoderes(Integer id, Poderes poder) {
+	public void atualizarPoderes(Integer id, Poder poder) {
 		
 		repository.findById(id);
 		

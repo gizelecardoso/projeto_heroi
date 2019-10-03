@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.ibm.model.Poderes;
+import br.com.ibm.model.Poder;
 import br.com.ibm.service.PoderesService;
 
 @RestController
@@ -25,31 +25,31 @@ public class PoderesController {
 		
 	
 	@GetMapping
-	public Iterable<Poderes> mostraTodosPoderes(Poderes poder) {
+	public Iterable<Poder> mostraTodosPoderes(Poder poder) {
 		return poderesService.consultaTodosPoderes(poder);
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Poderes> mostraPoderes(@PathVariable("id") Integer id, Poderes poder) {
+	public Optional<Poder> mostraPoderes(@PathVariable("id") Integer id, Poder poder) {
 		
 		return poderesService.consultaPoderes(id);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deletaPoderes(@PathVariable("id") Integer id, Poderes poder) {
+	public void deletaPoderes(@PathVariable("id") Integer id, Poder poder) {
 		poderesService.deletaPoderes(id);
 	} 
 	
 
 	@PostMapping
-	public String incluir(@RequestBody Poderes poder) {
+	public String incluir(@RequestBody Poder poder) {
 		poderesService.salvePoderes(poder);
 		
 		return "Cadastrado com sucesso";
 	}
 	
 	@PutMapping("/{id}")
-	public String atualizar(@PathVariable("id") Integer id, @RequestBody Poderes poder) {
+	public String atualizar(@PathVariable("id") Integer id, @RequestBody Poder poder) {
 		poderesService.atualizarPoderes(id, poder);
 
 		return "Atualizado com sucesso";
