@@ -1,8 +1,9 @@
 package br.com.ibm.repository;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
-@Repository
-public class HeroiRepository {
+import br.com.ibm.model.Heroi;
+
+public interface HeroiRepository extends CrudRepository<Heroi, Integer>{
 	
 }
