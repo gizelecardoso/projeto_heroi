@@ -2,7 +2,9 @@
       
 ESTRUTURA: Spring Boot
 
-Banco usado: MYSQL
+BANCO DE DADOS: MYSQL
+
+ARQUITETURA: MVC
 
 PROJETO:
 
@@ -33,6 +35,28 @@ Trabalhando com relacionamento @OneToOne - para referenciar o parceiro (Heroi)
 
 Trabalhando com relacionamento @ManyToMany - para referencia Lista de Heroi para Poder, e de Poder para Heroi 
           - criando no banco tabela associativa através @JoinTable (@JoinColumn com joinColumns e inverseJoinColumns)
+          
+
+
+*Rodando Aplicação
+      - Na classe HeroiController e PoderesController:
+                  RUN - NEW_CONFIGURATION;
+
+
+*Acessando Banco de Dados Mysql pelo Docker:
+
+      - Criando acesso ao Banco de Dados:
+            docker run -p 3306:3306 --name banco_super -e MYSQL_ROOT_PASSWORD=senha -d mysql
+            
+            -p: especifica a porta container:local
+            --name: nome do container (nesse caso coloquei o mesmo nome do meu banco)
+            -e: especificação do usuario e senha
+            -d: iniciar o container em backgound
+            mysql: nome imagem utilizada
+            
+            create database banco_super;
+            use banco_super;
+
 
 
 
