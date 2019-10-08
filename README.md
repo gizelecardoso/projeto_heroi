@@ -54,7 +54,15 @@ Trabalhando com relacionamento @ManyToMany - para referencia Lista de Heroi para
             -d: iniciar o container em backgound
             mysql: nome imagem utilizada
             
+       - acessando o container:
+            docker exe -it numero_do_container bash;
+            
+            
+       - acessando o banco mysql:     
+            mysql -uroot -p;
+                  password
             create database banco_super;
+                  //o banco precisa ser criado, o JPA não faz, ele só cria as tabelas.
             use banco_super;
 
 
