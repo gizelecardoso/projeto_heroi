@@ -55,7 +55,7 @@ Trabalhando com relacionamento @ManyToMany - para referencia Lista de Heroi para
             mysql: nome imagem utilizada
             
        - acessando o container:
-            docker exe -it numero_do_container bash;
+            docker exec -it numero_do_container bash;
             
             
        - acessando o banco mysql:     
